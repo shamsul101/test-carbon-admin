@@ -1,0 +1,38 @@
+export const recentSubscriptions = [
+  {
+    id: 1,
+    customer: "EcoTech Solutions",
+    plan: "Professional Carbon",
+    amount: 89,
+    status: "active",
+    startDate: "2024-06-15",
+    nextBilling: "2024-07-15",
+  },
+  {
+    id: 2,
+    customer: "Green Manufacturing Co",
+    plan: "Enterprise Sustainability",
+    amount: 299,
+    status: "active",
+    startDate: "2024-06-12",
+    nextBilling: "2024-07-12",
+  },
+  {
+    id: 3,
+    customer: "Sustainable Logistics Ltd",
+    plan: "Starter Green",
+    amount: 29,
+    status: "cancelled",
+    startDate: "2024-05-20",
+    nextBilling: "2024-06-20",
+  },
+  {
+    id: 4,
+    customer: "CleanEnergy Corp",
+    plan: "Professional Carbon",
+    amount: 89,
+    status: "pending",
+    startDate: "2024-06-16",
+    nextBilling: "2024-07-16",
+  },
+];
