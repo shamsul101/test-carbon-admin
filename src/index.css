@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 98%; /* White */
+    --foreground: 240 10% 3.9%; /* Zinc-950 */
+
+    /* Card colors */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 240 10% 3.9%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* UI colors */
+    --primary: 142 71% 45%; /* Your custom green - adjusted from 22 163 74 */
+    --primary-foreground: 0 0% 98%; /* White text */
+    
+    --secondary: 213 71% 55%; /* Blue */
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 4.8% 95.9%; /* Zinc-100 */
+    --muted-foreground: 240 3.8% 46.1%; /* Zinc-500 */
+    
+    --accent: 240 4.8% 95.9%; /* Zinc-100 */
+    --accent-foreground: 240 5.9% 10%; /* Zinc-900 */
+    
+    --destructive: 0 84.2% 60.2%; /* Red */
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 240 5.9% 90%; /* Zinc-200 */
+    --input: 240 5.9% 90%;
+    --ring: 142 71% 45%; /* Matching primary */
+    
+    --radius: 0.5rem;
+
+    /* Button colors */
+    --btn-primary: 34 94% 56%; /* Orange */
+    --btn-primary-foreground: 0 0% 100%; /* white */
+    --btn-secondary: 142 71% 45%; /* Matches primary */
+    --btn-secondary-foreground: 0 0% 98%; /* Zinc-50 */
+
+    /* Sidebar - light theme */
+    --sidebar-background: 0 0% 100%; /* White */
+    --sidebar-foreground: 240 10% 3.9%; /* Zinc-950 */
+    --sidebar-primary: 142 71% 45%; /* Green */
+    --sidebar-primary-foreground: 0 0% 98%; /* White */
+    --sidebar-accent: 240 4.8% 95.9%; /* Zinc-100 */
+    --sidebar-accent-foreground: 142 71% 45%; /* Green */
+    --sidebar-border: 240 5.9% 90%; /* Zinc-200 */
+    --sidebar-ring: 142 71% 45%; /* Green */
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --background: 240 10% 3.9%; /* Zinc-950 */
+    --foreground: 0 0% 98%; /* Zinc-50 */
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 71% 45%; /* Green */
+    --primary-foreground: 240 5.9% 10%; /* Zinc-900 */
+    
+    --secondary: 213 71% 55%; /* Blue */
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 3.7% 15.9%; /* Zinc-800 */
+    --muted-foreground: 240 5% 64.9%; /* Zinc-400 */
+    
+    --accent: 240 3.7% 15.9%; /* Zinc-800 */
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%; /* Dark red */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%; /* Zinc-800 */
+    --input: 240 3.7% 15.9%;
+    --ring: 142 71% 45%;
+
+    --btn-primary: 34 94% 56%; /* Orange */
+    --btn-primary-foreground: 0 0% 10%; /* almost black */
+    --btn-secondary: 142 71% 45%; /* Green */
+    --btn-secondary-foreground: 240 5.9% 10%; /* Zinc-900 */
+
+    /* Sidebar - dark theme */
+    --sidebar-background: 240 10% 3.9%; /* Zinc-950 */
+    --sidebar-foreground: 0 0% 98%; /* Zinc-50 */
+    --sidebar-primary: 142 71% 45%; /* Green */
+    --sidebar-primary-foreground: 240 5.9% 10%; /* Zinc-900 */
+    --sidebar-accent: 240 3.7% 15.9%; /* Zinc-800 */
+    --sidebar-accent-foreground: 220 252% 231%;
+    --sidebar-border: 240 3.7% 15.9%; /* Zinc-800 */
+    --sidebar-ring: 142 71% 45%; /* Green */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  [data-sidebar="sidebar"] {
+    @apply bg-sidebar-background text-sidebar-foreground;
+  }
+
+  [data-sidebar="menu-button"] {
+    @apply hover:bg-sidebar-accent hover:text-sidebar-accent-foreground;
+  }
+
+  [data-sidebar="menu-action"] {
+    @apply hover:bg-sidebar-accent hover:text-sidebar-accent-foreground;
+  }
+
+  [data-sidebar="separator"] {
+    @apply bg-sidebar-border;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary)/0.8);
+  }
+
+  /* Force all hover/active states to use our defined colors */
+  .hover\:bg-accent:hover {
+    background-color: hsl(var(--accent));
+  }
+  
+  .hover\:text-accent-foreground:hover {
+    color: hsl(var(--accent-foreground));
+  }
+  
+  .active\:bg-accent:active {
+    background-color: hsl(var(--accent));
+  }
+  
+  .focus\:ring-primary:focus {
+    --tw-ring-color: hsl(var(--primary));
+  }
+}
